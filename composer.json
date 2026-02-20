@@ -6,22 +6,20 @@
   "minimum-stability": "stable",
   "prefer-stable": true,
   "require": {
-    "php": ">=8.4",
+    "php": ">=8.5",
     "ext-ctype": "*",
     "ext-iconv": "*",
-    "symfony/flex": "^2"
-  },
-  "flex-require": {
-    "symfony/console": "*",
-    "symfony/dotenv": "*",
-    "symfony/framework-bundle": "*",
-    "symfony/runtime": "*",
-    "symfony/yaml": "*"
+    "symfony/console": "@stable",
+    "symfony/dotenv": "@stable",
+    "symfony/flex": "@stable",
+    "symfony/framework-bundle": "@stable",
+    "symfony/runtime": "@stable",
+    "symfony/yaml": "@stable"
   },
   "require-dev": {
-    "phpstan/phpstan": "2.*",
-    "slevomat/coding-standard": "8.*",
-    "symplify/easy-coding-standard": "12.*"
+    "phpstan/phpstan": "@stable",
+    "slevomat/coding-standard": "@stable",
+    "symplify/easy-coding-standard": "@stable"
   },
   "config": {
     "allow-plugins": {
@@ -54,8 +52,10 @@
     "symfony/polyfill-php82": "*"
   },
   "scripts": {
-    "auto-scripts": [
-    ],
+    "auto-scripts": {
+      "cache:clear": "symfony-cmd",
+      "assets:install %PUBLIC_DIR%": "symfony-cmd"
+    },
     "post-install-cmd": [
       "@auto-scripts"
     ],
@@ -64,13 +64,12 @@
     ]
   },
   "conflict": {
-    "squizlabs/php_codesniffer": ">=4.0",
     "symfony/symfony": "*"
   },
   "extra": {
     "symfony": {
       "allow-contrib": false,
-      "require": "7.3.*"
+      "require": "8"
     }
   }
 }

@@ -1,4 +1,4 @@
-FROM php:8.4-cli-alpine
+FROM php:8.5-cli-alpine
 
 ARG USER_ID
 ARG GROUP_ID
@@ -7,6 +7,8 @@ RUN addgroup -g ${GROUP_ID} -S app
 RUN adduser -u ${USER_ID} -S app -G app
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+ENV COMPOSER_MEMORY_LIMIT=-1
 
 RUN apk add --no-cache \
     git \
